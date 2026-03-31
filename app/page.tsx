@@ -17,7 +17,7 @@ export default function Home() {
             </h1>
             <p className="mt-5 text-lg leading-8 text-black/90">
               Ubuntu AfyaLink helps health facilities stay powered, protect
-              vaccines and coordinate care through AfyaSolar and AfyaBooking AI.
+              vaccines and coordinate care through AfyaSolar & AfyaBooking AI.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
