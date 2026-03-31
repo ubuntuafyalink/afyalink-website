@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --accent: #16a34a;
+  --font-figtree: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+/* Force light theme regardless of system preferences */
+html, body {
+  color-scheme: light !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff !important;
+    --foreground: #000000 !important;
+    --accent: #16a34a !important;
+  }
+  
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    color-scheme: light !important;
+  }
+  
+  /* Override any dark mode styles */
+  .dark {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  [data-theme="dark"] {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  /* Override Tailwind dark mode classes */
+  .dark\:bg-gray-900 {
+    background-color: #ffffff !important;
+  }
+  
+  .dark\:bg-gray-800 {
+    background-color: #ffffff !important;
+  }
+  
+  .dark\:bg-gray-100 {
+    background-color: #ffffff !important;
+  }
+  
+  .dark\:bg-gray-50 {
+    background-color: #f9fafb !important;
+  }
+  
+  .dark\:text-white {
+    color: #000000 !important;
+  }
+  
+  .dark\:text-gray-100 {
+    color: #000000 !important;
+  }
+  
+  .dark\:text-gray-300 {
+    color: #6b7280 !important;
+  }
+  
+  .dark\:text-gray-400 {
+    color: #9ca3af !important;
+  }
+  
+  .dark\:border-gray-700 {
+    border-color: #e5e7eb !important;
+  }
+  
+  .dark\:border-gray-600 {
+    border-color: #d1d5db !important;
+  }
+  
+  .dark\:border-gray-200 {
+    border-color: #e5e7eb !important;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-figtree), Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes partnerFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate3d(4px, -10px, 0) rotate(0.6deg) scale(1.015);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) rotate(0deg) scale(1.03);
+  }
+  75% {
+    transform: translate3d(-4px, -10px, 0) rotate(-0.6deg) scale(1.015);
+  }
+}
+
+.impact-card {
+  will-change: transform, box-shadow, opacity;
+}
+
+@keyframes impactIntro {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes impactFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  18% {
+    transform: translateY(-14px) scale(1.02);
+  }
+  30% {
+    transform: translateY(0) scale(0.99);
+  }
+  45% {
+    transform: translateY(-8px) scale(1.012);
+  }
+  58% {
+    transform: translateY(0) scale(1);
+  }
+  72% {
+    transform: translateY(-4px) scale(1.006);
+  }
+}
+
+@keyframes impactPulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  }
+  50% {
+    box-shadow: 0 14px 30px rgba(16, 185, 129, 0.18);
+  }
+}
+
+.btn-bounce {
+  animation: btnBounce 2.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes btnBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-4px);
+  }
+  35% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  65% {
+    transform: translateY(0);
+  }
+}
+
+.about-hero-slider {
+  overflow: hidden;
+}
+
+.about-hero-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+  animation: aboutHeroSlideLeft 16s ease-in-out infinite;
+}
+
+.about-hero-slide {
+  min-width: 100%;
+  flex: 0 0 100%;
+}
+
+@keyframes aboutHeroSlideLeft {
+  0%,
+  42% {
+    transform: translateX(0);
+  }
+  50%,
+  92% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Improve touch targets */
+  button, a, input, textarea, select {
+    min-height: 44px;
+  }
+  
+  /* Better text rendering on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Prevent horizontal scrolling */
+  html, body {
+    overflow-x: hidden;
+  }
+  
+  /* Improve image loading on mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Better button spacing on mobile */
+  .btn-bounce {
+    touch-action: manipulation;
+  }
+  
+  /* Prevent double-tap zoom on buttons */
+  button, a {
+    touch-action: manipulation;
+  }
+}
+
+/* Improve scrolling performance */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-logo-card {
+    animation: none !important;
+  }
+
+  .impact-card {
+    animation: none !important;
+  }
+
+  .btn-bounce {
+    animation: none !important;
+  }
+
+  .about-hero-track {
+    animation: none !important;
+    transform: translateX(0) !important;
+  }
+}
